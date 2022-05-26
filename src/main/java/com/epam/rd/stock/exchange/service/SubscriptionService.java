@@ -1,7 +1,11 @@
 package com.epam.rd.stock.exchange.service;
 
-import com.epam.rd.stock.exchange.model.enums.ValuableType;
+import com.epam.rd.stock.exchange.model.Subscription;
+import com.epam.rd.stock.exchange.model.Valuable;
+
+import java.util.List;
 
 public interface SubscriptionService {
-    void updateSubscriptions(String id, ValuableType type);
+    List<Subscription> findByValuableId(String valuableId);
+    void remove(Subscription subscription);
 }

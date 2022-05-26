@@ -16,16 +16,13 @@ public class ValuableServiceImpl implements ValuableService {
     private final ValuableRepository valuableRepository;
 
     @Override
-    public String updateValuable(ValuableUpdateDto valuableUpdateDto) {
-        Valuable valuable = valuableRepository.findBySymbol(valuableUpdateDto.getSymbol());
-        valuable = Valuable.builder().name(valuable.getName())
-                    .symbol(valuableUpdateDto.getSymbol())
-                    .price(valuableUpdateDto.getPrice())
-                    .trend(valuableUpdateDto.getPrice().subtract(valuable.getPrice()))
-                    .type(valuable.getType())
-                    .build();
+    public void updateValuable(Valuable valuable) {
         valuableRepository.save(valuable);
-        return valuable.getId();
+    }
+
+    @Override
+    public Valuable get(String symbol) {
+        return valuableRepository.findBySymbol(symbol);
     }
 
 }

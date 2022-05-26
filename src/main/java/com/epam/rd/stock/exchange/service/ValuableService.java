@@ -1,9 +1,10 @@
 package com.epam.rd.stock.exchange.service;
 
-import com.epam.rd.stock.exchange.dto.ValuableUpdateDto;
+import com.epam.rd.stock.exchange.model.Valuable;
 
 public interface ValuableService {
 
-    String updateValuable(ValuableUpdateDto valuableUpdateDto);
+    void updateValuable(Valuable valuable);
 
+    Valuable get(String symbol);
 }
